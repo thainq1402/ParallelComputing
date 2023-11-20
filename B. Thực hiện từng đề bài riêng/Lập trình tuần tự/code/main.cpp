@@ -6,6 +6,7 @@
 #include <stdexcept>
 
 // Hàm đọc một vector từ tệp
+// Hàm đọc một vector từ tệp
 std::vector<double> readVectorFromFile(const std::string &filename)
 {
     std::vector<double> result;
