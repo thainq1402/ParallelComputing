@@ -2,6 +2,8 @@
 
 Parallel Computing project MI4364
 
+https://github.com/thainq1402/ParallelComputing
+
 # I. YÊU CẦU
 
 ## A. Thực hiện chung (tất cả các nhóm): Thực hiện bài nhân ma trận với vector trên OpenMP, thử nghiệm với các kích thước khác nhau trong bài thực hành, in kết quả vào bài báo cáo. Đọc hiểu từng đoạn code.
