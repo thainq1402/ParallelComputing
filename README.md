@@ -4,6 +4,14 @@ Parallel Computing project MI4364
 
 https://github.com/thainq1402/ParallelComputing
 
+# Nhóm 27
+
+| Tên              | MSSV     |
+| ---------------- | -------- |
+| Vũ Văn Nghĩa     | 20206205 |
+| Trần Minh Quang  | 20206209 |
+| Nguyễn Quốc Thái | 20206168 |
+
 # I. YÊU CẦU
 
 ## A. Thực hiện chung (tất cả các nhóm): Thực hiện bài nhân ma trận với vector trên OpenMP, thử nghiệm với các kích thước khác nhau trong bài thực hành, in kết quả vào bài báo cáo. Đọc hiểu từng đoạn code.
