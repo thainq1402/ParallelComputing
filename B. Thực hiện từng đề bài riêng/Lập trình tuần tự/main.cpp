@@ -1,42 +1,49 @@
 #include <iostream>
-#include <fstream>
+#include <chrono>
 #include <vector>
-#include <sstream>
-#include <string>
-#include <stdexcept>
+#include <fstream>
+#include <random>
+#include <omp.h>
+#include <filesystem>
 
-// Hàm đọc một vector từ tệp
-// Hàm đọc một vector từ tệp
-std::vector<double> readVectorFromFile(const std::string &filename)
+using namespace std;
+namespace fs = filesystem;
+
+// Config
+const string INPUT_FOLDER = "data/10"; // Thư mục input chứa file dữ liệu vector_a.txt và vector_b.txt
+
+// Hàm đọc vector từ file
+vector<double> readVectorFromFile(const fs::path &inputFile)
 {
-    std::vector<double> result;
-    std::ifstream file(filename);
+    ifstream file(inputFile);
 
+    // Kiểm tra xem file có mở thành công hay không?
     if (!file.is_open())
     {
-        throw std::runtime_error("Cannot open file: " + filename);
+        cerr << "Cannot open file: " << inputFile << endl;
+        return vector<double>();
     }
 
-    std::string line;
-    while (std::getline(file, line))
+    vector<double> resultVector;
+    double value;
+
+    // Đọc từng giá trị từ file và thêm vào vector
+    while (file >> value)
     {
-        std::istringstream ss(line);
-        double value;
-        while (ss >> value)
-        {
-            result.push_back(value);
-        }
+        resultVector.push_back(value);
     }
 
+    // Đóng file sau khi đọc xong
     file.close();
-    return result;
+
+    return resultVector;
 }
 
-// Hàm tính tích vô hướng của hai vector
-double dotProduct(const std::vector<double> &a, const std::vector<double> &b)
+// Hàm tuần tự tính tích vô hướng của hai vector
+double dotProduct(const vector<double> &a, const vector<double> &b)
 {
-
     double result = 0.0;
+
     for (size_t i = 0; i < a.size(); i++)
     {
         result += a[i] * b[i];
@@ -44,46 +51,42 @@ double dotProduct(const std::vector<double> &a, const std::vector<double> &b)
 
     return result;
 }
-
 int main()
 {
-    try
+    auto start = chrono::high_resolution_clock::now();
+    //@ ===================================
+    // Đọc hai vector từ các tệp
+    vector<double> vectorA = readVectorFromFile(fs::path(INPUT_FOLDER) / "vector_a.txt");
+    vector<double> vectorB = readVectorFromFile(fs::path(INPUT_FOLDER) / "vector_b.txt");
+
+    // Kiểm tra kích thước
+    if (vectorA.size() == 0)
     {
-        // Đọc hai vector từ các tệp
-        std::vector<double> vectorA = readVectorFromFile("vector_a.txt");
-        std::vector<double> vectorB = readVectorFromFile("vector_b.txt");
-
-        // In hai vector
-        std::cout << "Vector A: ";
-        for (const double &value : vectorA)
-        {
-            std::cout << value << " ";
-        }
-        std::cout << std::endl;
-
-        std::cout << "Vector B: ";
-        for (const double &value : vectorB)
-        {
-            std::cout << value << " ";
-        }
-        std::cout << std::endl;
-
-        // Kiểm tra kích thước
-        if (vectorA.size() != vectorB.size())
-        {
-            std::cout << "The sizes of the two vectors are not equal." << std::endl;
-            return 1;
-        }
-
-        // Tính tích vô hướng và in kết quả
-        double result = dotProduct(vectorA, vectorB);
-        std::cout << "The dot product of two vectors is: " << result << std::endl;
-    }
-    catch (const std::exception &e)
-    {
-        std::cerr << "Error: " << e.what() << std::endl;
+        cout << "Vector A is empty." << endl;
         return 1;
     }
 
+    if (vectorB.size() == 0)
+    {
+        cout << "Vector B is empty." << endl;
+        return 1;
+    }
+
+    // vectorA.push_back(123456789);
+    if (vectorA.size() != vectorB.size())
+    {
+        cout << "The sizes of the two vectors are not equal." << endl;
+        return 1;
+    }
+
+    // Tính tích vô hướng và in kết quả
+    double result = dotProduct(vectorA, vectorB);
+    cout << "Sequential programming" << endl;
+    cout << "Input directory: \'" << INPUT_FOLDER << "\'" << endl;
+    cout << "The dot product of two vectors is: " << result << endl;
+    //@ ===================================
+    auto end = chrono::high_resolution_clock::now();
+    auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
+    cout << "Program execution time: " << duration.count() << " microseconds" << endl;
     return 0;
 }

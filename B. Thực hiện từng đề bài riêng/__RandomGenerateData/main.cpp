@@ -10,7 +10,7 @@ using namespace std;
 namespace fs = filesystem;
 
 // Config
-const int BATCH_SIZE = 1000;         // Số lượng xử lý phần tử vector
+const int BATCH_SIZE = 1000;         // Số lượng xử lý ghi phần tử vector
 const double MIN_VALUE = 1.0;        // Giá trị lớn nhất trong vector ngẫu nhiên
 const double MAX_VALUE = 100.0;      // Giá trị nhỏ nhất trong vector ngẫu nhiên
 const string OUTPUT_FOLDER = "data"; // Thư mục output chứa file dữ liệu
@@ -61,6 +61,11 @@ void generateRandomVector(const int length)
     }
 
     // Ghi kết quả vector vào tệp
+    if (!fs::exists(fs::path(OUTPUT_FOLDER) / to_string(length)))
+    {
+        fs::create_directory(fs::path(OUTPUT_FOLDER) / to_string(length));
+    }
+
     writeVectorToFile(vector_a, fs::path(OUTPUT_FOLDER) / to_string(length) / "vector_a.txt");
     writeVectorToFile(vector_b, fs::path(OUTPUT_FOLDER) / to_string(length) / "vector_b.txt");
 
@@ -85,11 +90,6 @@ int main()
     // #pragma omp parallel for
     for (int i = 0; i < sizeof(array_of_vector_lengths) / sizeof(array_of_vector_lengths[0]); ++i)
     {
-
-        if (!fs::exists(fs::path(OUTPUT_FOLDER) / to_string(array_of_vector_lengths[i])))
-        {
-            fs::create_directory(fs::path(OUTPUT_FOLDER) / to_string(array_of_vector_lengths[i]));
-        }
 
         generateRandomVector(array_of_vector_lengths[i]);
     }
