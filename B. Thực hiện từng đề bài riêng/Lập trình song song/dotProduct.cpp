@@ -7,7 +7,7 @@ using namespace std;
 
 
 vector<double> readVectorFromFile(const string& filename); // Hàm đọc vector từ file txt
-double dotProductOPM(vector<double> vectorA, vector<double> vectorB); // Nhân vô hướng 2 vecto 
+double dotProductOPM(vector<double>& vectorA, vector<double>& vectorB); // Nhân vô hướng 2 vecto 
 
 
 
