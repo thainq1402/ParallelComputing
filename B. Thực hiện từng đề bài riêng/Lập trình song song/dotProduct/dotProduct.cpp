@@ -7,7 +7,7 @@ using namespace std;
 
 
 vector<double> readVectorFromFile(const string& filename); // Hàm đọc vector từ file txt
-double dotProductOPM(vector<double>& vectorA, vector<double>& vectorB); // Nhân vô hướng 2 vecto 
+double dotProductOPM(vector<double> vectorA, vector<double> vectorB); // Nhân vô hướng 2 vecto 
 
 
 
@@ -56,7 +56,7 @@ vector<double> readVectorFromFile(const string& filename) {
     return vector;
 }
 
-double dotProductOPM(const vector<double>& vectorA, const vector<double>& vectorB) {
+double dotProductOPM(const vector<double> vectorA, const vector<double> vectorB) {
     if (vectorA.size() != vectorB.size()) {
         cerr << "Error: Vectors must have the same size." << endl;
         return 0.0;
