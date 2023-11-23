@@ -10,12 +10,12 @@
 
 // #define SIZE 10
 // #define SIZE 100
-// #define SIZE 1000
+#define SIZE 1000
 // #define SIZE 10000
 // #define SIZE 100000
 // #define SIZE 1000000
 // #define SIZE 10000000
-#define SIZE 100000000
+// #define SIZE 100000000
 // #define SIZE 1000000000
 
 double generateRandomNumber();                                           // Hàm sinh giá trị ngẫu nhiên
@@ -29,30 +29,22 @@ int main()
 
     double *vectorA = createRandomVector(SIZE);
     double *vectorB = createRandomVector(SIZE);
-    //@//////////////////////////////////////////////////////////////////////
-    // sequential
+
+    // Thực hiện tuần tự
     auto start_time_sequential = std::chrono::high_resolution_clock::now(); // Lấy thời điểm bắt đầu
-
-    // Thực hiện tuần tự tính tích vô hướng của 2 vector
     double result_sequential = sequentialDotProduct(vectorA, vectorB, SIZE);
-
     auto end_time_sequential = std::chrono::high_resolution_clock::now(); // Lấy thời điểm kết thúc
     auto duration_sequential = std::chrono::duration_cast<std::chrono::microseconds>(end_time_sequential - start_time_sequential);
-    //@//////////////////////////////////////////////////////////////////////
-    // parallel
-    auto start_time_parallel = std::chrono::high_resolution_clock::now(); // Lấy thời điểm bắt đầu
-
-    // Thực hiện song song tính tích vô hướng của 2 vector
-    double result_parallel = parallelDotProduct(vectorA, vectorB, SIZE);
-
-    auto end_time_parallel = std::chrono::high_resolution_clock::now(); // Lấy thời điểm kết thúc
-    auto duration_parallel = std::chrono::duration_cast<std::chrono::microseconds>(end_time_parallel - start_time_parallel);
-    //@//////////////////////////////////////////////////////////////////////
     std::cout << "Sequential programming" << std::endl;
     std::cout << "The dot product of two vectors is: " << result_sequential << std::endl;
     std::cout << "Program sequential execution time: " << duration_sequential.count() << " microseconds" << std::endl;      // Tính thời gian thực thi
     std::cout << "Program sequential execution time: " << duration_sequential.count() / 1000000 << " seconds" << std::endl; // Tính thời gian thực thi
 
+    // Thực hiện song song
+    auto start_time_parallel = std::chrono::high_resolution_clock::now(); // Lấy thời điểm bắt đầu
+    double result_parallel = parallelDotProduct(vectorA, vectorB, SIZE);
+    auto end_time_parallel = std::chrono::high_resolution_clock::now(); // Lấy thời điểm kết thúc
+    auto duration_parallel = std::chrono::duration_cast<std::chrono::microseconds>(end_time_parallel - start_time_parallel);
     std::cout << "Parallel programming" << std::endl;
     std::cout << "The dot product of two vectors is: " << result_parallel << std::endl;
     std::cout << "Program parallel execution time: " << duration_parallel.count() << " microseconds" << std::endl;      // Tính thời gian thực thi
@@ -117,7 +109,7 @@ double parallelDotProduct(double *vectorA, double *vectorB, int size)
     for (size_t i = 0; i < size; ++i)
     {
         // int threadNum = omp_get_thread_num();
-        // cout << "Thread " << threadNum << " is processing element " << i << endl;
+        // std::cout << "Thread " << threadNum << " is processing element " << i << std::endl;
         result += vectorA[i] * vectorB[i];
     }
 
