@@ -106,7 +106,7 @@ double parallelDotProduct(double *vectorA, double *vectorB, int size)
     double result = 0.0;
 
 #pragma fomp parallel for reduction(+ : result)
-    for (size_t i = 0; i < size; ++i)
+    for (int i = 0; i < size; ++i)
     {
         // int threadNum = omp_get_thread_num();
         // std::cout << "Thread " << threadNum << " is processing element " << i << std::endl;
