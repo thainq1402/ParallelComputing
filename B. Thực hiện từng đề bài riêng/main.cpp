@@ -19,8 +19,9 @@ using namespace std;
 double calculatorEfficiency(double time_tt, double time_ss, int thread); // Hàm tính hiệu suất
 double generateRandomNumber();                                           // Hàm sinh giá trị ngẫu nhiên
 double *createRandomVector(int size);                                    // Hàm tạo vector ngẫu nhiên
-double sequentialDotProduct(double *vectorA, double *vectorB, int size); // Hàm tuần tự
-double parallelDotProduct(double *vectorA, double *vectorB, int size);   // Hàm song song
+void releaseMemory(double *vectorA, double *vectorB);                    // Hàm giải phóng bộ nhớ
+double sequentialDotProduct(double *vectorA, double *vectorB, int size); // Hàm tính tuần tự
+double parallelDotProduct(double *vectorA, double *vectorB, int size);   // Hàm tính song song
 int main()
 {
     double result, efficiency;
@@ -52,8 +53,7 @@ int main()
     }
 
     // Giải phóng bộ nhớ
-    delete[] vectorA;
-    delete[] vectorB;
+    releaseMemory(vectorA, vectorB);
 
     return 0;
 }
@@ -90,6 +90,11 @@ double *createRandomVector(int size)
     }
 
     return vector;
+}
+void releaseMemory(double *vectorA, double *vectorB)
+{
+    delete[] vectorA;
+    delete[] vectorB;
 }
 double sequentialDotProduct(double *vectorA, double *vectorB, int size)
 {
