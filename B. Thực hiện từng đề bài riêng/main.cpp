@@ -139,6 +139,7 @@ double parallelDotProduct_v1(double *vectorA, double *vectorB, int size)
     {
         // int threadNum = omp_get_thread_num();
         // std::cout << "Thread " << threadNum << " is processing element " << i << std::endl;
+        // std::cout << "Thread " << threadNum << " is processing element " << i << std::endl;
         result += vectorA[i] * vectorB[i];
     }
     return result;
