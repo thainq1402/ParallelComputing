@@ -1,23 +1,18 @@
 #include <iostream>
-
-#include<iomanip>
-
+// #include<iomanip>
 #include <ctime>
-
 #include <cstdlib>
-
 // #include <chrono>
-
 #include <omp.h>
 
-// #define SIZE 10
+#define SIZE 10
 // #define SIZE 100
 // #define SIZE 1000
 // #define SIZE 10000
 // #define SIZE 100000
 // #define SIZE 1000000
 // #define SIZE 10000000
-#define SIZE 100000000
+// #define SIZE 100000000
 // #define SIZE 1000000000
 
 double generateRandomNumber();                                           // Hàm sinh giá trị ngẫu nhiên
@@ -49,7 +44,7 @@ int main()
     double duration_parallel =  (end_time_parallel - start_time_parallel);
     std::cout << "Parallel programming" << std::endl;
     std::cout << "The dot product of two vectors is: " << result_parallel << std::endl;
-    std::cout << "Program parallel execution time: " <<  std::setprecision(26) << duration_parallel << " seconds" << std::endl; // Tính thời gian thực thi
+    std::cout << "Program parallel execution time: " <<   duration_parallel << " seconds" << std::endl; // Tính thời gian thực thi
 
     
     // Thực hiện song song
