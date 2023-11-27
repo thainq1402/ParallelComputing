@@ -16,13 +16,11 @@ using namespace std;
 // #define SIZE 10000000
 // #define SIZE 100000000
 // #define SIZE 1000000000
-
+double calculatorEfficiency(double time_tt, double time_ss, int thread); // Hàm tính hiệu suất
 double generateRandomNumber();                                           // Hàm sinh giá trị ngẫu nhiên
 double *createRandomVector(int size);                                    // Hàm tạo vector ngẫu nhiên
-double calculatorEfficiency(double time_tt, double time_ss, int thread); // Hàm tính hiệu suất
 double sequentialDotProduct(double *vectorA, double *vectorB, int size); // Hàm tuần tự
 double parallelDotProduct(double *vectorA, double *vectorB, int size);   // Hàm song song
-
 int main()
 {
     double result, efficiency;
@@ -56,9 +54,13 @@ int main()
     // Giải phóng bộ nhớ
     delete[] vectorA;
     delete[] vectorB;
+
     return 0;
 }
-
+double calculatorEfficiency(double time_tt, double time_ss, int thread)
+{
+    return (time_tt / time_ss) / thread;
+}
 double generateRandomNumber()
 {
     static bool seedInitialized = false;
@@ -72,7 +74,6 @@ double generateRandomNumber()
 
     return static_cast<double>(rand());
 }
-
 double *createRandomVector(int size)
 {
     double *vector = new double[size];
@@ -90,11 +91,6 @@ double *createRandomVector(int size)
 
     return vector;
 }
-
-double calculatorEfficiency(double time_tt, double time_ss, int thread)
-{
-    return (time_tt / time_ss) / thread;
-}
 double sequentialDotProduct(double *vectorA, double *vectorB, int size)
 {
     double result = 0.0;
@@ -106,10 +102,8 @@ double sequentialDotProduct(double *vectorA, double *vectorB, int size)
 
     return result;
 }
-
 double parallelDotProduct(double *vectorA, double *vectorB, int size)
 {
-
     long double result = 0.0;
 
 #pragma omp parallel for reduction(+ : result), schedule(static)
