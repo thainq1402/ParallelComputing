@@ -35,10 +35,9 @@ int main()
 {
 	int row = SIZE;
 	int col = SIZE;
-	int size = col;
 	double *result = new double[row];
 	double efficiency;
-	cout << "The sizes: matrix = " << row << "x" << col << ", vector = " << size << "x1" << endl;
+	cout << "The sizes: matrix = " << row << "x" << col << ", vector = " << row << "x1" << endl;
 
 	// Tạo matrix và vector ngẫu nhiên
 	double *matrix = createRandomMatrix(row, col);
