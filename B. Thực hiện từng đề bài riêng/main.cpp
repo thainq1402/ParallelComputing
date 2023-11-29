@@ -4,6 +4,7 @@
 // #include<iomanip>
 #include <omp.h>
 #include <chrono>
+#include<random>
 
 using namespace std;
 
@@ -63,16 +64,26 @@ double calculatorEfficiency(double time_tt, double time_ss, int thread)
 }
 double generateRandomNumber()
 {
-    static bool seedInitialized = false;
+    // static bool seedInitialized = false;
 
-    // Kiểm tra khởi tạo seed
-    if (!seedInitialized)
-    {
-        srand(time(NULL));
-        seedInitialized = true;
-    }
+    // // Kiểm tra khởi tạo seed
+    // if (!seedInitialized)
+    // {
+    //     srand(time(NULL));
+    //     seedInitialized = true;
+    // }
 
-    return static_cast<double>(rand());
+    // return static_cast<double>(rand());
+    std::random_device rd;  // Thiết bị ngẫu nhiên
+    std::mt19937 gen(rd()); // Máy phát sinh số ngẫu nhiên
+
+    // Phân phối ngẫu nhiên hữu tỉ trong khoảng từ 0 đến 1
+    std::uniform_real_distribution<double> dis(0.0, 100.0);
+
+    // Sinh số hữu tỉ ngẫu nhiên
+    double randomValue = dis(gen);
+    return randomValue;
+
 }
 double *createRandomVector(int size)
 {
