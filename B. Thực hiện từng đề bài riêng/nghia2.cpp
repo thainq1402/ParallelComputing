@@ -40,7 +40,7 @@ int main()
 
     // Thực hiện song song
     int max_threads = omp_get_max_threads(); // Lấy số luồng tối đa theo từng máy
-    for (int thread = 2; thread < max_threads; thread++)
+    for (int thread = 2; thread <= max_threads; thread++)
     {
         omp_set_num_threads(thread); // Lặp theo số luồng để lấy thời gian
         auto start_time_parallel = chrono::high_resolution_clock::now();
