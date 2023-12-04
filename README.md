@@ -301,6 +301,339 @@ vvn20206205@DESKTOP-7BPL48I MINGW64 ~/Downloads
 
 
 
+
+
+
+
+
+
+vvn20206205@DESKTOP-7BPL48I MINGW64 ~/Desktop/VideoVN (main)
+
+
+
+
+
+
+
+
+$      cd "/c/Users/vvn20206205/Downloads/" && g++ -fopenmp -std=c++17 main.cpp -o main && "/c/Users/vvn20206205/Downloads/"main
+
+
+
+
+
+
+
+
+The sizes of the 2 vectors are: 100000
+
+
+
+
+
+
+
+
+Sequential programming: result = 2.50504e+08, time = 306 microseconds
+
+
+
+
+
+
+
+
+Parallel: thread = 2, result = 2.50504e+08, time = 392 microseconds, efficiency = 0.390306
+
+
+
+
+
+
+
+
+Parallel: thread = 3, result = 2.50504e+08, time = 297 microseconds, efficiency = 0.343434
+
+
+
+
+
+
+
+
+Parallel: thread = 4, result = 2.50504e+08, time = 332 microseconds, efficiency = 0.230422
+
+
+
+
+
+
+
+
+Parallel: thread = 5, result = 2.50504e+08, time = 275 microseconds, efficiency = 0.222545
+
+
+
+
+
+
+
+
+Parallel: thread = 6, result = 2.50504e+08, time = 234 microseconds, efficiency = 0.217949
+
+
+
+
+
+
+
+
+Parallel: thread = 7, result = 2.50504e+08, time = 236 microseconds, efficiency = 0.18523
+
+
+
+
+
+
+
+
+Parallel: thread = 8, result = 2.50504e+08, time = 283 microseconds, efficiency = 0.135159
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+vvn20206205@DESKTOP-7BPL48I MINGW64 ~/Downloads
+
+
+
+
+
+
+
+
+$      cd "/c/Users/vvn20206205/Downloads/" && g++ -fopenmp -std=c++17 main.cpp -o main && "/c/Users/vvn20206205/Downloads/"main
+
+
+
+
+
+
+
+
+The sizes of the 2 vectors are: 1000000
+
+
+
+
+
+
+
+
+Sequential programming: result = 2.50054e+09, time = 3099 microseconds
+
+
+
+
+
+
+
+
+Parallel: thread = 2, result = 2.50054e+09, time = 1819 microseconds, efficiency = 0.851842
+
+
+
+
+
+
+
+
+Parallel: thread = 3, result = 2.50054e+09, time = 1857 microseconds, efficiency = 0.556274
+
+
+
+
+
+
+
+
+Parallel: thread = 4, result = 2.50054e+09, time = 1268 microseconds, efficiency = 0.611002
+
+
+
+
+
+
+
+
+Parallel: thread = 5, result = 2.50054e+09, time = 1216 microseconds, efficiency = 0.509704
+
+
+
+
+
+
+
+
+Parallel: thread = 6, result = 2.50054e+09, time = 1118 microseconds, efficiency = 0.461986
+
+
+
+
+
+
+
+
+Parallel: thread = 7, result = 2.50054e+09, time = 1270 microseconds, efficiency = 0.348594
+
+
+
+
+
+
+
+
+Parallel: thread = 8, result = 2.50054e+09, time = 1193 microseconds, efficiency = 0.324707
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+vvn20206205@DESKTOP-7BPL48I MINGW64 ~/Downloads
+
+
+
+
+
+
+
+
+$      cd "/c/Users/vvn20206205/Downloads/" && g++ -fopenmp -std=c++17 main.cpp -o main && "/c/Users/vvn20206205/Downloads/"main
+
+
+
+
+
+
+
+
+The sizes of the 2 vectors are: 10000000
+
+
+
+
+
+
+
+
+Sequential programming: result = 2.49924e+10, time = 36217 microseconds
+
+
+
+
+
+
+
+
+Parallel: thread = 2, result = 2.49924e+10, time = 17082 microseconds, efficiency = 1.06009
+
+
+
+
+
+
+
+
+Parallel: thread = 3, result = 2.49924e+10, time = 11953 microseconds, efficiency = 1.00998
+
+
+
+
+
+
+
+
+Parallel: thread = 4, result = 2.49924e+10, time = 10245 microseconds, efficiency = 0.883773
+
+
+
+
+
+
+
+
+Parallel: thread = 5, result = 2.49924e+10, time = 10414 microseconds, efficiency = 0.695544
+
+
+
+
+
+
+
+
+Parallel: thread = 6, result = 2.49924e+10, time = 9095 microseconds, efficiency = 0.66368
+
+
+
+
+
+
+
+
+Parallel: thread = 7, result = 2.49924e+10, time = 7861 microseconds, efficiency = 0.658168
+
+
+
+
+
+
+
+
+Parallel: thread = 8, result = 2.49924e+10, time = 7441 microseconds, efficiency = 0.608403
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+vvn20206205@DESKTOP-7BPL48I MINGW64 ~/Downloads
+
+
 $
 
 
