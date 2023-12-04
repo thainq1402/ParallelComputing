@@ -33,3 +33,60 @@ https://github.com/thainq1402/ParallelComputing
 ## ĐỀ 2. Viết chương trình tính tích vô hướng của 2 vecto. (Dùng hàm thời gian so sánh với lập trình tuần tự)
 
 <!-- Họp lần 1 ngày 20/11/2023 -->
+
+
+
+
+
+#vector
+
+vvn20206205@DESKTOP-7BPL48I MINGW64 ~/Desktop/VideoVN/content (main)
+$      cd "/c/Users/vvn20206205/Downloads/" && g++ -fopenmp -std=c++17 main.cpp -o main && "/c/Users/vvn20206205/Downloads/"main
+The sizes of the 2 vectors are: 10
+Sequential programming: result = 16819.9, time = 0 microseconds
+Parallel: thread = 2, result = 16819.9, time = 251 microseconds, efficiency = 0
+Parallel: thread = 3, result = 16819.9, time = 194 microseconds, efficiency = 0
+Parallel: thread = 4, result = 16819.9, time = 158 microseconds, efficiency = 0
+Parallel: thread = 5, result = 16819.9, time = 233 microseconds, efficiency = 0
+Parallel: thread = 6, result = 16819.9, time = 191 microseconds, efficiency = 0
+Parallel: thread = 7, result = 16819.9, time = 158 microseconds, efficiency = 0
+Parallel: thread = 8, result = 16819.9, time = 257 microseconds, efficiency = 0
+
+vvn20206205@DESKTOP-7BPL48I MINGW64 ~/Downloads
+$      cd "/c/Users/vvn20206205/Downloads/" && g++ -fopenmp -std=c++17 main.cpp -o main && "/c/Users/vvn20206205/Downloads/"main
+The sizes of the 2 vectors are: 100
+Sequential programming: result = 218418, time = 0 microseconds
+Parallel: thread = 2, result = 218418, time = 226 microseconds, efficiency = 0
+Parallel: thread = 3, result = 218418, time = 154 microseconds, efficiency = 0
+Parallel: thread = 4, result = 218418, time = 198 microseconds, efficiency = 0
+Parallel: thread = 5, result = 218418, time = 159 microseconds, efficiency = 0
+Parallel: thread = 6, result = 218418, time = 177 microseconds, efficiency = 0
+Parallel: thread = 7, result = 218418, time = 191 microseconds, efficiency = 0
+Parallel: thread = 8, result = 218418, time = 214 microseconds, efficiency = 0
+
+vvn20206205@DESKTOP-7BPL48I MINGW64 ~/Downloads
+$      cd "/c/Users/vvn20206205/Downloads/" && g++ -fopenmp -std=c++17 main.cpp -o main && "/c/Users/vvn20206205/Downloads/"main
+The sizes of the 2 vectors are: 1000
+Sequential programming: result = 2.51013e+06, time = 3 microseconds
+Parallel: thread = 2, result = 2.51013e+06, time = 211 microseconds, efficiency = 0.007109
+Parallel: thread = 3, result = 2.51013e+06, time = 156 microseconds, efficiency = 0.00641026
+Parallel: thread = 4, result = 2.51013e+06, time = 192 microseconds, efficiency = 0.00390625
+Parallel: thread = 5, result = 2.51013e+06, time = 242 microseconds, efficiency = 0.00247934
+Parallel: thread = 6, result = 2.51013e+06, time = 232 microseconds, efficiency = 0.00215517
+Parallel: thread = 7, result = 2.51013e+06, time = 213 microseconds, efficiency = 0.00201207
+Parallel: thread = 8, result = 2.51013e+06, time = 234 microseconds, efficiency = 0.00160256
+
+vvn20206205@DESKTOP-7BPL48I MINGW64 ~/Downloads
+$      cd "/c/Users/vvn20206205/Downloads/" && g++ -fopenmp -std=c++17 main.cpp -o main && "/c/Users/vvn20206205/Downloads/"main
+The sizes of the 2 vectors are: 10000
+Sequential programming: result = 2.48332e+07, time = 32 microseconds
+Parallel: thread = 2, result = 2.48332e+07, time = 239 microseconds, efficiency = 0.0669456
+Parallel: thread = 3, result = 2.48332e+07, time = 151 microseconds, efficiency = 0.0706402
+Parallel: thread = 4, result = 2.48332e+07, time = 140 microseconds, efficiency = 0.0571429
+Parallel: thread = 5, result = 2.48332e+07, time = 160 microseconds, efficiency = 0.04
+Parallel: thread = 6, result = 2.48332e+07, time = 158 microseconds, efficiency = 0.0337553
+Parallel: thread = 7, result = 2.48332e+07, time = 133 microseconds, efficiency = 0.0343716
+Parallel: thread = 8, result = 2.48332e+07, time = 116 microseconds, efficiency = 0.0344828
+
+vvn20206205@DESKTOP-7BPL48I MINGW64 ~/Downloads
+$
